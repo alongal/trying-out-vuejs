@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Clash</title>
+  <!-- the star of the show - the Vue library! -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- text and the button -->
+<div id="sentences-app">
+  <p>{{ chosenSentence }}</p>
+  <p>
+    <button v-on:click="randomSentence">Shuffle</button>
+  </p>
+</div>
+
+<script>
+  var sentences = [
+    "A glittering gem is not enough.",
+    "He told us a very exciting adventure story.",
+    "She works two jobs to make ends meet; at least, that was her reason for not having time to join us.",
+    "The book is in front of the table.",
+    "She did not cheat on the test, for it was not the right thing to do.",
+    "Lets all be unique together until we realise we are all the same.",
+    "I currently have 4 windows open up… and I don’t know why.",
+    "I'd rather be a bird than a fish.",
+    "Malls are great places to shop; I can find everything I need under one roof.",
+    "If you like tuna and tomato sauce- try combining the two. It’s really not as bad as it sounds.",
+  ];
+
+  document.addEventListener('DOMContentLoaded', function () {
+    new Vue({
+      el: '#sentences-app',
+      // define data - initial display text and set the text on the button
+      data: {
+        chosenSentence: ""
+      },
+
+      mounted() {
+
+      },
+      // define the methods - alternate between the two values
+      methods: {
+        randomSentence: function () {
+          var randomItem = sentences[Math.floor(Math.random() * sentences.length)];
+          this.chosenSentence = randomItem;
+        }
+      }
+    })
+  })
+</script>
+</body>
+</html>
