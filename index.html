@@ -10,8 +10,9 @@
 <div id="sentences-app">
   <p>{{ chosenSentence }}</p>
   <p>
-    <button v-on:click="randomSentence">Shuffle</button>
+    <button @click="randomSentence">Shuffle</button>
   </p>
+  <p><input type="text" v-model="inputText">&nbsp;{{ inputText }}</p>
 </div>
 
 <script>
@@ -33,7 +34,8 @@
       el: '#sentences-app',
       // define data - initial display text and set the text on the button
       data: {
-        chosenSentence: ""
+        chosenSentence: "",
+        inputText: "",
       },
 
       mounted() {
